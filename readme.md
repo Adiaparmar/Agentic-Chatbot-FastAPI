@@ -20,7 +20,7 @@ LangGraph AI Agent is a personal AI bot built using LangGraph, designed to inter
 
 ## Try it Out 🧑‍💻
 
-- [Link](https://langgraph-frontend-7f31.onrender.com/)_
+- [Link](https://langgraph-frontend-7f31.onrender.com/)
 
 ## Usage 🚀
 
