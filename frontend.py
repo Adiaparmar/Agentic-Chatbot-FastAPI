@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import os
 
 # Page configuration must be the first Streamlit command
 st.set_page_config(page_title="Langgraph AI Agent", layout="centered", initial_sidebar_state="collapsed")
@@ -198,7 +199,7 @@ with st.container():
                     "messages": [user_query],
                     "allow_search": allow_web_search
                 }
-                API_URL = "http://127.0.0.1:9999/chat"
+                API_URL = os.environ.get("BACKEND_URL", "http://127.0.0.1:9999") + "/chat"
 
                 try:
                     response = requests.post(API_URL, json=payload)

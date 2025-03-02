@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: langgraph-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend:app --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+
+  - type: web
+    name: langgraph-frontend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run frontend.py --server.port=$PORT --server.address=0.0.0.0
+    envVars:
+      - key: BACKEND_URL
+        value: https://langgraph-backend.onrender.com
